@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: pink;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+header {
+    background-color: pink;
+    color: quamarine;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+section {
+    background-color: gray;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+h2 {
+    color: aquamarine;
+    border-bottom: 1px solid pink;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.photo {
+    width: 200px;
+    max-width: 100%;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    header {
+        padding: 20px 10px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .photo {
+        width: 150px;
+    }
+}
