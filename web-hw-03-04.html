@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB.HW.03.04</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+
+        .large {
+            width: 180px;
+            height: 180px;
+        }
+
+        .small {
+            width: 60px;
+            height: 60px;
+        }
+
+        .medium {
+            width: 120px;
+            height: 120px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+    <h1>WEB.HW.03.04</h1>
+</header>
+
+<p><a href="index.html">← Назад на главную</a></p>
+
+<section>
+    <div id="stateBox" class="box"></div>
+    <button id="stateButton" onclick="changeState()">Стандарт</button>
+</section>
+
+</div>
+
+<script>
+let stateBox = document.getElementById("stateBox");
+let stateButton = document.getElementById("stateButton");
+let state = 0;
+
+function changeState() {
+    state++;
+
+    if (state > 3) {
+        state = 0;
+    }
+
+    if (state === 0) {
+        stateBox.className = "box";
+        stateButton.textContent = "Стандарт";
+    } else if (state === 1) {
+        stateBox.className = "box large red";
+        stateButton.textContent = "Большой красный";
+    } else if (state === 2) {
+        stateBox.className = "box small blue";
+        stateButton.textContent = "Маленький синий";
+    } else if (state === 3) {
+        stateBox.className = "box medium green";
+        stateButton.textContent = "Средний зелёный";
+    }
+}
+</script>
+
+</body>
+</html>
