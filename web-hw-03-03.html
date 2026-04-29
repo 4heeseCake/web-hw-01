@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB.HW.03.03</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .squares {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .square {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+    <h1>WEB.HW.03.03</h1>
+</header>
+
+<p><a href="index.html">← Назад на главную</a></p>
+
+<section>
+    <div class="squares">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+
+    <button onclick="randomColors()">Случайные цвета</button>
+    <button onclick="resetColors()">Сброс</button>
+</section>
+
+</div>
+
+<script>
+let palette = ["red", "blue", "green", "yellow", "orange", "purple", "pink"];
+let squares = document.getElementsByClassName("square");
+
+function randomColors() {
+    for (let square of squares) {
+        let randomColor = palette[Math.floor(Math.random() * palette.length)];
+        square.style.backgroundColor = randomColor;
+    }
+}
+
+function resetColors() {
+    for (let square of squares) {
+        square.style.backgroundColor = "white";
+    }
+}
+</script>
+
+</body>
+</html>
