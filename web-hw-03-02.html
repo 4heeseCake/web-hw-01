@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB.HW.03.02</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="container">
+
+<header>
+    <h1>WEB.HW.03.02</h1>
+</header>
+
+<p><a href="index.html">← Назад на главную</a></p>
+
+<section>
+    <p class="text-block">Это первый абзац.</p>
+    <button onclick="toggleParagraph(0)">Показать/Скрыть</button>
+
+    <p class="text-block">Это второй абзац.</p>
+    <button onclick="toggleParagraph(1)">Показать/Скрыть</button>
+
+    <p class="text-block">Это третий абзац.</p>
+    <button onclick="toggleParagraph(2)">Показать/Скрыть</button>
+
+    <br><br>
+
+    <button id="toggleAllButton" onclick="toggleAll()">Скрыть всё</button>
+</section>
+
+</div>
+
+<script>
+let paragraphs = document.getElementsByClassName("text-block");
+let toggleAllButton = document.getElementById("toggleAllButton");
+
+function toggleParagraph(index) {
+    if (paragraphs[index].style.display === "none") {
+        paragraphs[index].style.display = "block";
+    } else {
+        paragraphs[index].style.display = "none";
+    }
+
+    updateMainButtonText();
+}
+
+function toggleAll() {
+    let allHidden = true;
+
+    for (let paragraph of paragraphs) {
+        if (paragraph.style.display !== "none") {
+            allHidden = false;
+        }
+    }
+
+    if (allHidden) {
+        for (let paragraph of paragraphs) {
+            paragraph.style.display = "block";
+        }
+    } else {
+        for (let paragraph of paragraphs) {
+            paragraph.style.display = "none";
+        }
+    }
+
+    updateMainButtonText();
+}
+
+function updateMainButtonText() {
+    let allHidden = true;
+
+    for (let paragraph of paragraphs) {
+        if (paragraph.style.display !== "none") {
+            allHidden = false;
+        }
+    }
+
+    if (allHidden) {
+        toggleAllButton.textContent = "Показать всё";
+    } else {
+        toggleAllButton.textContent = "Скрыть всё";
+    }
+}
+</script>
+
+</body>
+</html>
