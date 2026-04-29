@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB.HW.02 — Функции в JavaScript</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+<div class="container">
+
+<header>
+    <h1>WEB.HW.02</h1>
+    <p>Функции в JavaScript</p>
+</header>
+
+<p><a href="index.html">← Назад на главную</a></p>
+
+<section>
+    <h2>WEB.HW.02.01</h2>
+    <p>Функция принимает три массива и находит сумму всех элементов этих массивов.</p>
+
+<pre><code>function sumArrays(arr1, arr2, arr3) {
+    let allArrays = arr1.concat(arr2, arr3);
+    let sum = 0;
+
+    for (let number of allArrays) {
+        sum += number;
+    }
+
+    return sum;
+}</code></pre>
+</section>
+
+<section>
+    <h2>WEB.HW.02.02</h2>
+    <p>Функция принимает три массива и возвращает сумму всех простых чисел.</p>
+
+<pre><code>function isPrime(number) {
+    if (number &lt; 2) {
+        return false;
+    }
+
+    for (let i = 2; i &lt; number; i++) {
+        if (number % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function sumPrimeNumbers(arr1, arr2, arr3) {
+    let allArrays = arr1.concat(arr2, arr3);
+    let sum = 0;
+
+    for (let number of allArrays) {
+        if (isPrime(number)) {
+            sum += number;
+        }
+    }
+
+    return sum;
+}</code></pre>
+</section>
+
+<section>
+    <h2>WEB.HW.02.03</h2>
+    <p>Функция принимает несколько объектов и выводит в консоль свойства и значения, которые есть в каждом объекте.</p>
+
+<pre><code>function showCommonProperties(...objects) {
+    let firstObject = objects[0];
+
+    for (let key in firstObject) {
+        let existsInAll = true;
+
+        for (let object of objects) {
+            if (!(key in object)) {
+                existsInAll = false;
+                break;
+            }
+        }
+
+        if (existsInAll) {
+            console.log(key + ": " + firstObject[key]);
+        }
+    }
+}</code></pre>
+</section>
+
+<section>
+    <h2>Проверка работы</h2>
+    <button onclick="runHomework()">Запустить код</button>
+    <p>Результат также можно посмотреть в консоли браузера.</p>
+    <div id="output"></div>
+</section>
+
+</div>
+
+<script>
+function sumArrays(arr1, arr2, arr3) {
+    let allArrays = arr1.concat(arr2, arr3);
+    let sum = 0;
+
+    for (let number of allArrays) {
+        sum += number;
+    }
+
+    return sum;
+}
+
+function isPrime(number) {
+    if (number < 2) {
+        return false;
+    }
+
+    for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function sumPrimeNumbers(arr1, arr2, arr3) {
+    let allArrays = arr1.concat(arr2, arr3);
+    let sum = 0;
+
+    for (let number of allArrays) {
+        if (isPrime(number)) {
+            sum += number;
+        }
+    }
+
+    return sum;
+}
+
+function showCommonProperties(...objects) {
+    let firstObject = objects[0];
+
+    for (let key in firstObject) {
+        let existsInAll = true;
+
+        for (let object of objects) {
+            if (!(key in object)) {
+                existsInAll = false;
+                break;
+            }
+        }
+
+        if (existsInAll) {
+            console.log(key + ": " + firstObject[key]);
+        }
+    }
+}
+
+function runHomework() {
+    let arr1 = [1, 2, 3];
+    let arr2 = [4, 5, 6];
+    let arr3 = [7, 8, 9];
+
+    let object1 = {
+        name: "Anna",
+        age: 20,
+        city: "Riga"
+    };
+
+    let object2 = {
+        name: "Ivan",
+        age: 25,
+        country: "Latvia"
+    };
+
+    let object3 = {
+        name: "Maria",
+        age: 30,
+        hobby: "Music"
+    };
+
+    let result1 = sumArrays(arr1, arr2, arr3);
+    let result2 = sumPrimeNumbers(arr1, arr2, arr3);
+
+    console.log("Сумма всех элементов:", result1);
+    console.log("Сумма простых чисел:", result2);
+    console.log("Общие свойства объектов:");
+    showCommonProperties(object1, object2, object3);
+
+    document.getElementById("output").innerHTML =
+        "<p>Сумма всех элементов: " + result1 + "</p>" +
+        "<p>Сумма простых чисел: " + result2 + "</p>" +
+        "<p>Общие свойства объектов выведены в консоль.</p>";
+}
+</script>
+
+</body>
+</html>
